@@ -7,24 +7,30 @@
       "inheritEnvironments": [ "msvc_x64_x64" ],
       "buildRoot": "${projectDir}\\out\\build\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
-      "cmakeCommandArgs": "",
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
       "cmakeToolchain": "${projectDir}\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
     },
     {
       "name": "WSL-Clang-Debug",
-      "generator": "Unix Makefiles",
+      "generator": "Ninja",
       "configurationType": "Debug",
       "buildRoot": "${projectDir}\\out\\build\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
       "cmakeExecutable": "cmake",
-      "cmakeCommandArgs": "-DCMAKE_MAKE_PROGRAM=ninja",
-      "buildCommandArgs": "",
+      "buildCommandArgs": "-v",
       "ctestCommandArgs": "",
       "cmakeToolchain": "${projectDir}\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake",
       "inheritEnvironments": [ "linux_clang_x64" ],
-      "wslPath": "Debian"
+      "wslPath": "${defaultWSLPath}",
+      "cmakeCommandArgs": "-DCMAKE_MAKE_PROGRAM=/usr/bin/ninja -DCMAKE_C_FLAGS=\"\"",
+      "remoteCopyAdditionalIncludeDirectories": [ "/usr/include/c++/10/" ],
+      "environments": [
+        {
+          "CFLAGS": "",
+          "CXXFLAGS": ""
+        }
+      ]
     },
     {
       "name": "WSL-GCC-Release",
@@ -37,7 +43,8 @@
       "ctestCommandArgs": "",
       "cmakeToolchain": "${projectDir}\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake",
       "inheritEnvironments": [ "linux_x64" ],
-      "wslPath": "Debian"
+      "wslPath": "${defaultWSLPath}",
+      "cmakeCommandArgs": "-DCMAKE_MAKE_PROGRAM=/usr/bin/ninja -DCMAKE_C_FLAGS=\"\""
     },
     {
       "name": "WSL-GCC-Debug",
@@ -45,13 +52,37 @@
       "configurationType": "Debug",
       "buildRoot": "${projectDir}\\out\\build\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
-      "cmakeExecutable": "cmake",
+      "cmakeExecutable": "",
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
       "cmakeToolchain": "${projectDir}\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake",
       "inheritEnvironments": [ "linux_x64" ],
-      "wslPath": "Debian",
-      "variables": []
+      "wslPath": "Ubuntu",
+      "remoteCopyAdditionalIncludeDirectories": [ "/usr/include" ]
+    },
+    {
+      "name": "x64-Clang-Release",
+      "generator": "Ninja",
+      "configurationType": "RelWithDebInfo",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "cmakeToolchain": "${projectDir}\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake",
+      "inheritEnvironments": [ "clang_cl_x64_x64" ]
+    },
+    {
+      "name": "x64-Release",
+      "generator": "Ninja",
+      "configurationType": "RelWithDebInfo",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "cmakeToolchain": "${projectDir}\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
     }
   ]
 }

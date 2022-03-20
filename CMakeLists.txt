@@ -6,6 +6,8 @@ cmake_minimum_required (VERSION 3.8)
 project ("xui")
 set(CMAKE_CXX_STANDARD 17)     
 
-message("hej")
 # Include sub-projects.
-add_subdirectory ("xui")
+#message("xui")
+#add_subdirectory ("xui")
+message("xui2")
+add_subdirectory ("xui2")

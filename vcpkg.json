@@ -3,9 +3,6 @@
   "name": "my-application",
   "version": "0.15.2",
   "dependencies": [
-    "tgui",
-    "sfml",
-    "sdl2",
-    "sdl2-ttf"
+    "sfgui" 
   ]
 }
