@@ -7,7 +7,7 @@ project ("xui")
 set(CMAKE_CXX_STANDARD 17)     
 
 # Include sub-projects.
-#message("xui")
-#add_subdirectory ("xui")
+message("xui")
+add_subdirectory ("xui")
 message("xui2")
 add_subdirectory ("xui2")
