@@ -4,3 +4,6 @@
 
 /.vs
 /out/build
+*~undo-tree~
+/.cache
+/compile_commands.json
