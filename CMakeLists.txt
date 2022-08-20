@@ -15,3 +15,6 @@ add_subdirectory ("xui2")
 
 message("--- building xui3 ---")
 add_subdirectory ("xui3")
+
+message("--- building xui4 ---")
+add_subdirectory ("xui4")
