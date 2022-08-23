@@ -14,9 +14,29 @@ main()
 {
   // Create the window
   sf::RenderWindow window(sf::VideoMode(400, 300), "TGUI window");
-  tgui::Gui gui(window);
+  tgui::GuiSFML gui(window);
 
-  auto label = tgui::Label::create("hepp");
+  auto editBoxUsername = tgui::EditBox::create();
+  editBoxUsername->setSize({ "66.67%", "12.5%" });
+  editBoxUsername->setPosition({ "16.67%", "16.67%" });
+  editBoxUsername->setDefaultText("Username");
+  gui.add(editBoxUsername);
+
+  auto editBoxPassword = tgui::EditBox::copy(editBoxUsername);
+  editBoxPassword->setPosition({ "16.67%", "41.6%" });
+  editBoxPassword->setPasswordCharacter('*');
+  editBoxPassword->setDefaultText("Password");
+  gui.add(editBoxPassword);
+
+  auto button = tgui::Button::create("Login");
+  button->setSize({ "50%", "16.67%" });
+  button->setPosition({ "25%", "70%" });
+  gui.add(button);
+
+
+  button->onPress(login, editBoxUsername, editBoxPassword);
+
+
   try {
     auto tabs = tgui::Tabs::create();
     tabs->setTabHeight(30);

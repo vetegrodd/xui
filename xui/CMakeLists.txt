@@ -7,7 +7,7 @@ find_package(SFML COMPONENTS system window graphics CONFIG REQUIRED)
 find_package(TGUI CONFIG REQUIRED)
 find_package(Threads)
 find_package(SDL2 REQUIRED)
-find_package(SDL2-ttf REQUIRED)
+find_package(SDL2_ttf REQUIRED)
 find_package(OpenGL)
 
 # Add source to this project's executable.

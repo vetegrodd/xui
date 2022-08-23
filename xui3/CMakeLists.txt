@@ -1,5 +1,3 @@
-cmake_minimum_required (VERSION 3.23)
-
 find_package(ftxui CONFIG REQUIRED)
 
 add_executable(xui3 xui3.cpp)
